@@ -1,24 +1,25 @@
-const RGTS = require('../models/registry');
+const Wish = require('../models/wish');
 
 //list all items
 exports.list = async(req, res) =>{
     try{
-    const registry = await RGTS.find({});
-    res.json(registry);
+    const wish = await Wish.find({});
+    res.json(wish);
     }catch(error){
         console.log(error);
         res.send(error);
         next();
     }
 };
-
+// find
 exports.show = async(req, res, next) =>{
+
     try{
-        const registry = await RGTS.findOne({id: req.params.id});
-        if(!registry){
-            res.status(404).json({message: "Registry not found"});
+        const wish = await Wish.findOne({id: req.params.id});
+        if(!wish){
+            res.status(404).json({message: "Item not found"});
         }
-        res.json(registry);
+        res.json(wish);
 
     }catch(error){
         console.log(error);
@@ -27,12 +28,13 @@ exports.show = async(req, res, next) =>{
     }
 };
 
+//add
 exports.add = async(req, res) =>{
-    const registry = new RGTS(req.body);
+    const wish = new Wish(req.body);
 
     try{
-        await registry.save();
-        res.json({message: "New registration done"});
+        await wish.save();
+        res.json({message: "New book wish added"});
         }catch(error){
             console.log(error);
             res.send(error);
@@ -42,10 +44,10 @@ exports.add = async(req, res) =>{
 
 exports.update = async (req, res, next) =>{
     try{
-        const registry = await RGTS.findOneAndUpdate(
+        const wish = await Wish.findOneAndUpdate(
             {id: req.params.id},req.body
         );
-        res.json({message: "Registry updated"});
+        res.json({message: "Wished book updated"});
 
     }catch(error){
         console.log(error);
@@ -57,12 +59,12 @@ exports.update = async (req, res, next) =>{
 
 exports.delete = async (req, res, next) =>{
     try{
-        const registry = await RGTS.findOneAndDelete({id: req.params.id});
-        res.json({message: "User deleted"});
+        const wish = await Wish.findOneAndDelete({id: req.params.id});
+        res.json({message: " Wish book deleted"});
 
     }catch(error){
         console.log(error);
-        res.status(400).json({message: "Error"});
+        res.status(400).json({message: "Item not found"});
         next();
     }
 };

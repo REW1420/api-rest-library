@@ -8,3 +8,21 @@ Content-Type: application/json
     "email": "willia@gmail.com",
     "password": "william2"
 }
+###
+DELETE  http://localhost:3000/api/registry/:id HTTP/1.1
+
+{
+    "id": "0"
+}
+###
+GET http://localhost:3000/api/registry HTTP/1.1
+###
+POST http://localhost:3000/api/wish HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": 0,
+    "name": "test",
+    "author": "test",
+    "pages": "test"
+}

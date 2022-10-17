@@ -62,7 +62,7 @@ exports.delete = async (req, res, next) =>{
 
     }catch(error){
         console.log(error);
-        res.status(400).json({message: "El Cliente no existe"});
+        res.status(400).json({message: "Item not found"});
         next();
     }
 };

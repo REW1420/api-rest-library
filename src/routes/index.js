@@ -2,6 +2,7 @@ const { Router } = require('express');
 const router = Router();
 const bookController = require('../controllers/BooksController');
 const RegistryController = require('../controllers/registryController');
+const wishController = require('../controllers/wishController')
 
 //routes
 router.get('/api/test', (req, res) => {
@@ -33,6 +34,15 @@ router.post('/api/registry', RegistryController.add);
 router.put('/api/registry/:id', RegistryController.update);
 
 router.delete('/api/registry/:id', RegistryController.delete);
+
+//wish book
+router.get('/api/wish', wishController.list);
+
+router.get('/api/wish/:id', wishController.show);
+
+router.post('/api/wish', wishController.add);
+
+router.put('/api/wish/:id', wishController.update);
 
 
 module.exports = router;
