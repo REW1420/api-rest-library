@@ -22,7 +22,7 @@ router.post('/api/list', bookController.add);
 
 router.put('/api/list/:id', bookController.update);
 
-router.delete('/api/list/:id', bookController.delete);
+router.delete('/api/list/delete/:id', bookController.delete);
 
 //registry
 router.get('/api/registry', RegistryController.list);
@@ -33,7 +33,7 @@ router.post('/api/registry', RegistryController.add);
 
 router.put('/api/registry/:id', RegistryController.update);
 
-router.delete('/api/registry/:id', RegistryController.delete);
+router.delete('/api/registry/delete/:id', RegistryController.delete);
 
 //wish book
 router.get('/api/wish', wishController.list);
@@ -43,7 +43,7 @@ router.get('/api/wish/:id', wishController.show);
 router.post('/api/wish', wishController.add);
 
 router.put('/api/wish/:id', wishController.update);
-router.delete('/api/registry/delete/:id', RegistryController.delete);
+router.delete('/api/wish/delete/:id', RegistryController.delete);
 
 
 module.exports = router;
