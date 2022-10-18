@@ -14,15 +14,15 @@ router.get('/api/test', (req, res) => {
 });
 
 //book
-router.get('/api/list', bookController.list);
+router.get('/api/book', bookController.list);
 
-router.get('/api/list/:id', bookController.show);
+router.get('/api/book/:id', bookController.show);
 
-router.post('/api/list', bookController.add);
+router.post('/api/book', bookController.add);
 
-router.put('/api/list/:id', bookController.update);
+router.put('/api/book/:id', bookController.update);
 
-router.delete('/api/list/delete/:id', bookController.delete);
+router.delete('/api/book/:id', bookController.delete);
 
 //registry
 router.get('/api/registry', RegistryController.list);
@@ -33,7 +33,7 @@ router.post('/api/registry', RegistryController.add);
 
 router.put('/api/registry/:id', RegistryController.update);
 
-router.delete('/api/registry/delete/:id', RegistryController.delete);
+router.delete('/api/registry/:id', RegistryController.delete);
 
 //wish book
 router.get('/api/wish', wishController.list);
@@ -43,7 +43,8 @@ router.get('/api/wish/:id', wishController.show);
 router.post('/api/wish', wishController.add);
 
 router.put('/api/wish/:id', wishController.update);
-router.delete('/api/wish/delete/:id', RegistryController.delete);
+
+router.delete('/api/wish/:id', wishController.delete);
 
 
 module.exports = router;
