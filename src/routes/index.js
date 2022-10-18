@@ -43,6 +43,7 @@ router.get('/api/wish/:id', wishController.show);
 router.post('/api/wish', wishController.add);
 
 router.put('/api/wish/:id', wishController.update);
+router.delete('/api/registry/delete/:id', RegistryController.delete);
 
 
 module.exports = router;

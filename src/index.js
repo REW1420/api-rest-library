@@ -8,7 +8,7 @@ const cors = require('cors');
 
 
 //settings
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 app.set('json spaces', 2);
 
 //mongodb connect
