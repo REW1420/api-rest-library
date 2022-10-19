@@ -5,7 +5,7 @@ const Author = require('../models/author');
 exports.list = async(req, res) =>{
     try{
     const author = await Author.find({});
-    res.json(books);
+    res.json(author);
     }catch(error){
         console.log(error);
         res.send(error);
@@ -16,10 +16,10 @@ exports.list = async(req, res) =>{
 exports.show = async(req, res, next) =>{
     try{
         const author = await Author.findOne({id: req.params.id});
-        if(!books){
+        if(!author){
             res.status(404).json({message: "Author not found"});
         }
-        res.json(books);
+        res.json(author);
 
     }catch(error){
         console.log(error);
@@ -32,7 +32,7 @@ exports.add = async(req, res) =>{
     const author = new Author(req.body);
 
     try{
-        await books.save();
+        await author.save();
         res.json({message: "New author added"});
         }catch(error){
             console.log(error);
