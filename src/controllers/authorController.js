@@ -1,10 +1,10 @@
-const Book = require('../models/books');
+const Author = require('../models/author');
 
 
 //list all items
 exports.list = async(req, res) =>{
     try{
-    const books = await Book.find({});
+    const author = await Author.find({});
     res.json(books);
     }catch(error){
         console.log(error);
@@ -15,9 +15,9 @@ exports.list = async(req, res) =>{
 
 exports.show = async(req, res, next) =>{
     try{
-        const books = await Book.findOne({id: req.params.id});
+        const author = await Author.findOne({id: req.params.id});
         if(!books){
-            res.status(404).json({message: "Item not found"});
+            res.status(404).json({message: "Author not found"});
         }
         res.json(books);
 
@@ -29,11 +29,11 @@ exports.show = async(req, res, next) =>{
 };
 
 exports.add = async(req, res) =>{
-    const books = new Book(req.body);
+    const author = new Author(req.body);
 
     try{
         await books.save();
-        res.json({message: "New book added"});
+        res.json({message: "New author added"});
         }catch(error){
             console.log(error);
             res.send(error);
@@ -43,10 +43,10 @@ exports.add = async(req, res) =>{
 
 exports.update = async (req, res, next) =>{
     try{
-        const books = await Book.findOneAndUpdate(
+        const author = await Author.findOneAndUpdate(
             {id: req.params.id},req.body
         );
-        res.json({message: "Book updated"});
+        res.json({message: "Atuhor updated"});
 
     }catch(error){
         console.log(error);
@@ -58,12 +58,12 @@ exports.update = async (req, res, next) =>{
 
 exports.delete = async (req, res, next) =>{
     try{
-        const books = await Book.findOneAndDelete({id: req.params.id});
-        res.json({message: "Book deleted"});
+        const author = await Author.findOneAndDelete({id: req.params.id});
+        res.json({message: "Atuhor deleted"});
 
     }catch(error){
         console.log(error);
-        res.status(400).json({message: "Book not found"});
+        res.status(400).json({message: "Author not found"});
         next();
     }
 };

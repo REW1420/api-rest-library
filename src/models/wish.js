@@ -17,6 +17,10 @@ const wishSchema = new Schema({
     pages:{
         type: String,
         trim: true,
+    },
+    genre:{
+        type : String,
+        trim : true,
     }
 });
 

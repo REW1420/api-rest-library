@@ -64,7 +64,7 @@ exports.delete = async (req, res, next) =>{
 
     }catch(error){
         console.log(error);
-        res.status(400).json({message: "Item not found"});
+        res.status(400).json({message: "Book not found"});
         next();
     }
 };

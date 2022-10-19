@@ -3,6 +3,7 @@ const router = Router();
 const bookController = require('../controllers/BooksController');
 const RegistryController = require('../controllers/registryController');
 const wishController = require('../controllers/wishController')
+const authorController = require('../controllers/authorController')
 
 //routes
 router.get('/api/test', (req, res) => {
@@ -46,5 +47,15 @@ router.put('/api/wish/:id', wishController.update);
 
 router.delete('/api/wish/:id', wishController.delete);
 
+//author
+router.get('/api/author', authorController.list);
+
+router.get('/api/author/:id', authorController.show);
+
+router.post('/api/author', authorController.add);
+
+router.put('/api/author/:id', authorController.update);
+
+router.delete('/api/author/:id', authorController.delete);
 
 module.exports = router;
