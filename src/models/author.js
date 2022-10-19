@@ -11,7 +11,15 @@ const authorSchema = new Schema({
         type: String,
         trim: true,
     },
-    bornDate:{
+    bornDay:{
+        type: String,
+        trim: true,
+    },
+    bornMoth:{
+        type: String,
+        trim: true,
+    },
+    bornYear:{
         type: String,
         trim: true,
     }
