@@ -7,7 +7,7 @@ const authorSchema = new Schema({
         type: String,
         trim: true,
     },
-    caionality:{
+    nacionality:{
         type: String,
         trim: true,
     },
