@@ -45,7 +45,7 @@ router.post('/api/wish', wishController.add);
 
 router.put('/api/wish/:_id', wishController.update);
 
-router.delete('/api/wish/:id', wishController.delete);
+router.delete('/api/wish/:_id', wishController.delete);
 
 //author
 router.get('/api/author', authorController.list);
